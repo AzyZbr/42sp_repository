@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gproenca <gproenca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 12:14:23 by gproenca          #+#    #+#             */
-/*   Updated: 2026/04/15 15:39:17 by gproenca         ###   ########.fr       */
+/*   Created: 2026/04/16 10:27:24 by gproenca          #+#    #+#             */
+/*   Updated: 2026/04/16 11:01:54 by gproenca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
-{
-	unsigned int	i;
+#include <unistd.h>
 
-	i = 0;
-	while (i < n && (*s1 || *s2))
+void	ft_putnbr(int nb)
+{
+	char	r;
+
+	if (nb == -2147483648)
 	{
-		if (!(*s1 == *s2))
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-		i++;
+		write (1, "-2147483648", 11);
+		return ;
 	}
-	return (0);
+	if (nb < 0)
+	{
+		write(1, "-", 1);
+		nb = -nb;
+	}
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	r = (nb % 10) + '0';
+	write(1, &r, 1);
 }

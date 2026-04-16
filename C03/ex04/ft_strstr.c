@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gproenca <gproenca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 12:14:23 by gproenca          #+#    #+#             */
-/*   Updated: 2026/04/15 15:39:17 by gproenca         ###   ########.fr       */
+/*   Created: 2026/04/14 12:14:31 by gproenca          #+#    #+#             */
+/*   Updated: 2026/04/15 11:50:20 by gproenca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+char	*ft_strstr(char *str, char *to_find)
 {
-	unsigned int	i;
+	int	i;
+	int	j;
 
+	if (!(to_find[0]))
+		return (str);
 	i = 0;
-	while (i < n && (*s1 || *s2))
+	while (str[i])
 	{
-		if (!(*s1 == *s2))
-			return (*s1 - *s2);
-		s1++;
-		s2++;
+		j = 0;
+		while (to_find[j] != '\0' && str[i + j] == to_find[j])
+			j++;
+		if (to_find[j] == '\0')
+			return (&str[i]);
 		i++;
 	}
 	return (0);

@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gproenca <gproenca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/14 12:14:23 by gproenca          #+#    #+#             */
-/*   Updated: 2026/04/15 15:39:17 by gproenca         ###   ########.fr       */
+/*   Created: 2026/04/16 10:28:29 by gproenca          #+#    #+#             */
+/*   Updated: 2026/04/16 10:29:57 by gproenca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(char *s1, char *s2, unsigned int n)
+int	ft_strlen(char *str)
 {
-	unsigned int	i;
+	int	len;
 
-	i = 0;
-	while (i < n && (*s1 || *s2))
-	{
-		if (!(*s1 == *s2))
-			return (*s1 - *s2);
-		s1++;
-		s2++;
-		i++;
-	}
-	return (0);
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
 }
