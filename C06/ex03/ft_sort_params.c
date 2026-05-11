@@ -6,7 +6,7 @@
 /*   By: gproenca <gproenca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 10:28:58 by gproenca          #+#    #+#             */
-/*   Updated: 2026/04/20 12:04:38 by gproenca         ###   ########.fr       */
+/*   Updated: 2026/04/22 16:01:35 by gproenca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,46 @@ int	ft_scmp(char *s1, char *s2)
 	return ((unsigned char)*s1 - (unsigned char)*s2);
 }
 
-void	ft_bbl_sort(int ac, char **av)
+void	ft_swap(char **a, char **b)
 {
 	char	*temp;
+
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+int	ft_partition(char **av, int low, int high)
+{
+	char	*pivot;
 	int		i;
 	int		j;
 
-	i = 1;
-	while (i < ac - 1)
+	pivot = av[high];
+	i = low;
+	j = low;
+	while (j < high)
 	{
-		j = 1;
-		while (j < ac - 1)
+		if (ft_scmp(av[j], pivot) < 0)
 		{
-			if (ft_scmp(av[j], av[j + 1]) > 0)
-			{
-				temp = av[j];
-				av[j] = av[j + 1];
-				av[j + 1] = temp;
-			}
-			j++;
+			ft_swap(&av[i], &av[j]);
+			i++;
 		}
-		i++;
+		j++;
+	}
+	ft_swap(&av[i], &av[high]);
+	return (i);
+}
+
+void	ft_quicksort(char **av, int low, int high)
+{
+	int	pivot;
+
+	if (low < high)
+	{
+		pivot = ft_partition(av, low, high);
+		ft_quicksort(av, low, pivot - 1);
+		ft_quicksort(av, pivot + 1, high);
 	}
 }
 
@@ -51,7 +70,7 @@ int	main(int ac, char **av)
 	int	i;
 	int	j;
 
-	ft_bbl_sort(ac, av);
+	ft_quicksort(av, 1, ac - 1);
 	i = 1;
 	while (i < ac)
 	{
