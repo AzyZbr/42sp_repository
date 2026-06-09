@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_callloc.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gproenca <gproenca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 13:41:35 by gproenca          #+#    #+#             */
-/*   Updated: 2026/05/29 14:00:11 by gproenca         ###   ########.fr       */
+/*   Updated: 2026/06/09 12:58:43 by gproenca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	*ft_calloc(size_t n, size_t size)
 {
 	void	*p;
 
+	if (n != 0 && size > ((size_t)-1) / n)
+		return (NULL);
 	if (n == 0 || size == 0)
-	{
-		n = 1;
-		size = 1;
-	}
+		return (malloc(0));
 	p = malloc(n * size);
-	if (p)
-		ft_bzero(p, n * size);
+	if (!p)
+		return (NULL);
+	ft_bzero(p, (n * size));
 	return (p);
 }

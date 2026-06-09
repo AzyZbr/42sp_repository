@@ -6,7 +6,7 @@
 /*   By: gproenca <gproenca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 14:16:22 by gproenca          #+#    #+#             */
-/*   Updated: 2026/06/04 16:14:21 by gproenca         ###   ########.fr       */
+/*   Updated: 2026/06/09 12:53:20 by gproenca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int		ft_atoi(const char *str);
+int		ft_atoi(const char *np);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
-int		ft_tolower(char c);
-int		ft_toupper(char c);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_lstsize(t_list *lst);

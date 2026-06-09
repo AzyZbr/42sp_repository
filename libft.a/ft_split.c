@@ -6,7 +6,7 @@
 /*   By: gproenca <gproenca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 16:01:17 by gproenca          #+#    #+#             */
-/*   Updated: 2026/06/03 14:45:55 by gproenca         ###   ########.fr       */
+/*   Updated: 2026/06/08 12:09:41 by gproenca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static int	count_words(char const *s, char c)
 		while (*s && *s != c)
 			s++;
 	}
+	return (count);
 }
 
 static int	word_len(char const *s, char c)

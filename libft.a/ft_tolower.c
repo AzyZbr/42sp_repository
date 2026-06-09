@@ -6,13 +6,13 @@
 /*   By: gproenca <gproenca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 16:48:48 by gproenca          #+#    #+#             */
-/*   Updated: 2026/05/26 15:44:17 by gproenca         ###   ########.fr       */
+/*   Updated: 2026/06/09 12:35:38 by gproenca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(char c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
-		c += 32;
+		return (c + 32);
 	return (c);
 }

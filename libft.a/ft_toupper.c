@@ -6,13 +6,13 @@
 /*   By: gproenca <gproenca@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/18 16:48:50 by gproenca          #+#    #+#             */
-/*   Updated: 2026/05/26 15:43:45 by gproenca         ###   ########.fr       */
+/*   Updated: 2026/06/09 12:35:24 by gproenca         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(char c)
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
-		c -= 32;
+		return (c - 32);
 	return (c);
 }
